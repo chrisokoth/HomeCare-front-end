@@ -21,10 +21,9 @@ const Footer = () => {
       </div>
       <div className={styles.footer_3}>
         <p className={styles.text_6}>Contact Us</p>
-        <a className={styles.contact_1}>Call: (+91) 7870658888</a>
+        <a className={styles.contact_1}>Call: (+254) 734578965</a>
         <p className={styles.address}>
-          <span className={styles.addressSpan}>Address:</span> Near Hyderbad
-          gate, Varanasi
+          <span className={styles.addressSpan}>Address:</span> Nairobi, Kenya
         </p>
       </div>
     </div>

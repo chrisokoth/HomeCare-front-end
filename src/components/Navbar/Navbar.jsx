@@ -18,7 +18,7 @@ const Navbar = () => {
         <div>
           <Link to="/">
             <div className={styles.logoSection}>
-              <img alt="brand" src={Brand} />
+              
               <span className={styles.brand}>
                 AtHomeCare<p className={styles.brandIn}></p>
               </span>

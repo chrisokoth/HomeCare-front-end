@@ -7,14 +7,18 @@ import NavbarD from "../../components/Doctor/NavbarD/NavbarD";
 import { useRef, useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-function Home() {
-  const doctor = useSelector((state) => {
-    return state.doctor;
-  });
+import { 
+  Activity, 
+  Video, 
+  ClipboardList, 
+  Calendar, 
+  Pill, 
+  MessageSquare 
+} from 'lucide-react';
 
-  const patient = useSelector((state) => {
-    return state.patient;
-  });
+function Home() {
+  const doctor = useSelector((state) => state.doctor);
+  const patient = useSelector((state) => state.patient);
 
   const [imagesInView, setImagesInView] = useState(false);
   const sectionRef = useRef(null);
@@ -43,12 +47,63 @@ function Home() {
     };
   }, [imagesInView]);
 
+  const services = [
+    {
+      icon: <Video className="w-8 h-8 text-blue-600" />,
+      title: "Video Consultations",
+      description: "Secure high-quality telemedicine sessions optimized for low bandwidth areas"
+    },
+    {
+      icon: <Activity className="w-8 h-8 text-blue-600" />,
+      title: "Remote Monitoring",
+      description: "Real-time vital signs tracking with automated health alerts"
+    },
+    {
+      icon: <ClipboardList className="w-8 h-8 text-blue-600" />,
+      title: "Digital Records",
+      description: "Comprehensive electronic health records with secure storage"
+    },
+    {
+      icon: <Pill className="w-8 h-8 text-blue-600" />,
+      title: "Prescription Management",
+      description: "Digital prescriptions with medication tracking and reminders"
+    },
+    {
+      icon: <Calendar className="w-8 h-8 text-blue-600" />,
+      title: "Easy Scheduling",
+      description: "Streamlined appointment booking with healthcare providers"
+    },
+    {
+      icon: <MessageSquare className="w-8 h-8 text-blue-600" />,
+      title: "Direct Communication",
+      description: "Instant messaging between patients and healthcare providers"
+    }
+  ];
+
+  const featuredServices = [
+    {
+      image: "service1.webp",
+      title: "24/7 Telemedicine",
+      description: "Connect with qualified healthcare providers anytime, anywhere in Kenya through secure video consultations"
+    },
+    {
+      image: "service2.webp",
+      title: "Remote Health Monitoring",
+      description: "Track your vital signs and health metrics from home with real-time monitoring and alerts"
+    },
+    {
+      image: "service3.webp",
+      title: "Digital Health Records",
+      description: "Access your complete medical history, prescriptions, and test results in one secure digital platform"
+    }
+  ];
+
   return (
     <>
       {doctor.isLoggedIn && !patient.isLoggedIn ? <NavbarD /> : <Navbar />}
       <div className={styles.herosection}>
         <div className={styles.img1}>
-          <LazyLoadImage src="img1.webp" />
+          <LazyLoadImage src="img1.webp" alt="Hero" />
         </div>
         <div className={styles.content}>
           <TypeAnimation
@@ -66,118 +121,97 @@ function Home() {
             repeat={Infinity}
           />
           <div className={styles.content2}>
-          HealthCare  <br></br> Without Boundaries
+            HealthCare <br /> Without Boundaries
           </div>
           <Link to="/health_history">
             <div className={styles.content3}>Get Started</div>
           </Link>
         </div>
         <div className={styles.group}>
-          <LazyLoadImage src="Group.webp" />
+          <LazyLoadImage src="Group.webp" alt="Group" />
         </div>
         <div className={styles.button}>
           <Link to="/health_history">
             <div className={styles.b1}>
               Check your Health History
-              <LazyLoadImage src="history.webp" />
+              <LazyLoadImage src="history.webp" alt="History" />
             </div>
           </Link>
           <Link to="/">
             <div className={styles.b2}>
-              Have queries? Ask Here
-              <LazyLoadImage src="query.webp" />
+              FAQs
+              <LazyLoadImage src="query.webp" alt="Query" />
             </div>
           </Link>
           <Link to="/appointment">
             <div className={styles.b3}>
               Book an Appointment
-              <LazyLoadImage src="appointment.webp" />
+              <LazyLoadImage src="appointment.webp" alt="Appointment" />
             </div>
           </Link>
         </div>
       </div>
+      
       <div className={styles.lowerSection}>
         <div className={styles.lp1}>Welcome to AtHomeCare</div>
         <div className={styles.lp2}>
-        Empowering Healthcare Through Digital Innovation
+          Empowering Healthcare Through Digital Innovation
         </div>
         <div className={styles.lp3}>
           Experience Healthcare Without Boundaries with AtHomeCare.
-          <br></br>
+          <br />
           Connect with doctors, monitor your health, and manage medical records seamlessly.
-          <br></br>
+          <br />
           Quality healthcare at your fingertips, anywhere in Kenya.
         </div>
+        
         <div className={styles.landImage}>
           <div ref={sectionRef} className={styles.cardGroups}>
             <div className={styles.cardGroup}>
-              <div
-                className={`${styles.bigCard} ${styles.card} ${
-                  imagesInView ? styles.animateCard1 : ""
-                }`}
-              ></div>
-
-              <div
-                className={`${styles.bigCard} ${styles.card} ${
-                  imagesInView ? styles.animateCard2 : ""
-                }`}
-              ></div>
-
-              <div
-                className={`${styles.bigCard} ${styles.card} ${
-                  imagesInView ? styles.animateCard3 : ""
-                }`}
-              ></div>
-
-              <div
-                className={`${styles.bigCard} ${styles.card} ${
-                  imagesInView ? styles.animateCard4 : ""
-                }`}
-              ></div>
+              <div className={`${styles.bigCard} ${styles.card} ${imagesInView ? styles.animateCard1 : ""}`}></div>
+              <div className={`${styles.bigCard} ${styles.card} ${imagesInView ? styles.animateCard2 : ""}`}></div>
+              <div className={`${styles.bigCard} ${styles.card} ${imagesInView ? styles.animateCard3 : ""}`}></div>
+              <div className={`${styles.bigCard} ${styles.card} ${imagesInView ? styles.animateCard4 : ""}`}></div>
             </div>
           </div>
         </div>
-        <div className={styles.lp4}>Care you can believe in</div>
+
+        <div className={styles.lp4}></div>
         <div className={styles.lp5}>Our Services</div>
         <div className={styles.lp6}>
-          Facilitating Seamless Transtitions for Patients and Doctors
+          Facilitating Seamless Healthcare Access Across Kenya
         </div>
+        
         <div className={styles.lp7}>
-          <ul>
-            <li>Personalised Virtual Assitant</li>
-            <li>Store all your records</li>
-            <li>Make appointments directly</li>
-          </ul>
-          <ul>
-            <li>Save Prescriptions and Test Reports</li>
-            <li>Info About Medicine dosage and intake</li>
-            <li>Easier communication with your Doctors</li>
-          </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              >
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="p-3 bg-blue-50 rounded-full">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold">{service.title}</h3>
+                </div>
+                <p className="text-gray-600 text-center">{service.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
       <div className={styles.featuredServices}>
         <h2>Featured Services</h2>
         <div className={styles.servicesList}>
-          <div className={styles.service}>
-            <LazyLoadImage opacity src="service1.webp" alt="Service 1" />
-            <h4>Virtual Consultations</h4>
-            <p>Get medical advice from the comfort of your home.</p>
-          </div>
-          <div className={styles.service}>
-            <LazyLoadImage opacity src="service2.webp" alt="Service 2" />
-            <h4>Health Monitoring</h4>
-            <p>
-              Track your health progress and get personalized recommendations.
-            </p>
-          </div>
-          <div className={styles.service}>
-            <LazyLoadImage opacity src="service3.webp" alt="Service 3" />
-            <h4>Health Records</h4>
-            <p>
-              Store all your health records in one place and access them
-              anytime.
-            </p>
-          </div>
+          {featuredServices.map((service, index) => (
+            <div key={index} className={styles.service}>
+              <LazyLoadImage src={service.image} alt={service.title} />
+              <h4>{service.title}</h4>
+              <p>{service.description}</p>
+            </div>
+          ))}
         </div>
       </div>
 
