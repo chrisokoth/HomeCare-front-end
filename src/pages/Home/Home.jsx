@@ -1,3 +1,5 @@
+
+
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./home.module.css";
@@ -13,14 +15,17 @@ import {
   ClipboardList, 
   Calendar, 
   Pill, 
-  MessageSquare 
+  MessageSquare,
+  ChevronDown,
+  ChevronUp 
 } from 'lucide-react';
 
 function Home() {
   const doctor = useSelector((state) => state.doctor);
   const patient = useSelector((state) => state.patient);
-
   const [imagesInView, setImagesInView] = useState(false);
+  const [activeFaq, setActiveFaq] = useState(null);
+  const [showFaqs, setShowFaqs] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -84,17 +89,36 @@ function Home() {
     {
       image: "service1.webp",
       title: "24/7 Telemedicine",
-      description: "Connect with qualified healthcare providers anytime, anywhere in Kenya through secure video consultations"
+      description: "Connect with qualified healthcare providers anytime, anywhere in Kenya"
     },
     {
-      image: "service2.webp",
+      image: "service2.webp", 
       title: "Remote Health Monitoring",
-      description: "Track your vital signs and health metrics from home with real-time monitoring and alerts"
+      description: "Track your vital signs and health metrics from home with real-time monitoring"
     },
     {
       image: "service3.webp",
-      title: "Digital Health Records",
-      description: "Access your complete medical history, prescriptions, and test results in one secure digital platform"
+      title: "Digital Health Records", 
+      description: "Access your complete medical history in one secure digital platform"
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "What is AtHomeCare and how does it work?",
+      answer: "AtHomeCare is a telemedicine platform connecting patients with healthcare providers across Kenya. Get video consultations, health monitoring, and digital prescriptions from home."
+    },
+    {
+      question: "What are the technical requirements?",
+      answer: "You need an internet connection with at least 1Mbps speed, a smartphone (Android 8.0+ or iOS 13.0+) or a computer with webcam and microphone."
+    },
+    {
+      question: "How do I schedule an appointment?",
+      answer: "Click 'Book an Appointment', select your provider, choose a time slot, and complete the M-PESA payment. You'll receive immediate confirmation."
+    },
+    {
+      question: "Is my medical information secure?",
+      answer: "Yes, we use end-to-end encryption and comply with Kenya's Data Protection Act 2019. Your records are stored securely with strict access controls."
     }
   ];
 
@@ -137,12 +161,10 @@ function Home() {
               <LazyLoadImage src="history.webp" alt="History" />
             </div>
           </Link>
-          <Link to="/">
-            <div className={styles.b2}>
-              FAQs
-              <LazyLoadImage src="query.webp" alt="Query" />
-            </div>
-          </Link>
+          <div className={styles.b2} onClick={() => setShowFaqs(!showFaqs)}>
+            FAQs
+            <LazyLoadImage src="query.webp" alt="Query" />
+          </div>
           <Link to="/appointment">
             <div className={styles.b3}>
               Book an Appointment
@@ -150,8 +172,41 @@ function Home() {
             </div>
           </Link>
         </div>
+
+        {showFaqs && (
+          <div className={styles.faqOverlay} onClick={() => setShowFaqs(false)}>
+            <div className={styles.faqContainer} onClick={e => e.stopPropagation()}>
+              <div className={styles.faqHeader}>
+                <h2>Frequently Asked Questions</h2>
+                <button className={styles.closeButton} onClick={() => setShowFaqs(false)}>×</button>
+              </div>
+              <div className={styles.faqList}>
+                {faqs.map((faq, index) => (
+                  <div key={index} className={styles.faqItem}>
+                    <button
+                      className={styles.faqQuestion}
+                      onClick={() => setActiveFaq(activeFaq === index ? null : index)}
+                    >
+                      <span>{faq.question}</span>
+                      {activeFaq === index ? (
+                        <ChevronUp className={styles.faqIcon} />
+                      ) : (
+                        <ChevronDown className={styles.faqIcon} />
+                      )}
+                    </button>
+                    {activeFaq === index && (
+                      <div className={styles.faqAnswer}>
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-      
+
       <div className={styles.lowerSection}>
         <div className={styles.lp1}>Welcome to AtHomeCare</div>
         <div className={styles.lp2}>
