@@ -66,7 +66,7 @@ function Home() {
             repeat={Infinity}
           />
           <div className={styles.content2}>
-            Paving the Way <br></br> for Medical Excellence
+          HealthCare  <br></br> Without Boundaries
           </div>
           <Link to="/health_history">
             <div className={styles.content3}>Get Started</div>
@@ -97,15 +97,16 @@ function Home() {
         </div>
       </div>
       <div className={styles.lowerSection}>
-        <div className={styles.lp1}>Welcome to Medifyme</div>
+        <div className={styles.lp1}>Welcome to AtHomeCare</div>
         <div className={styles.lp2}>
-          An AI Powered Platform for Managing Health Records
+        Empowering Healthcare Through Digital Innovation
         </div>
         <div className={styles.lp3}>
-          Discover a better way to manage your health records. MedifyMe helps
-          <br></br> you manage your healthcare needs easily and efficiently.
+          Experience Healthcare Without Boundaries with AtHomeCare.
           <br></br>
-          Simplify your healthcare management today.
+          Connect with doctors, monitor your health, and manage medical records seamlessly.
+          <br></br>
+          Quality healthcare at your fingertips, anywhere in Kenya.
         </div>
         <div className={styles.landImage}>
           <div ref={sectionRef} className={styles.cardGroups}>

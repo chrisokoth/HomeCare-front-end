@@ -20,7 +20,7 @@ const Navbar = () => {
             <div className={styles.logoSection}>
               <img alt="brand" src={Brand} />
               <span className={styles.brand}>
-                MEDIFY<p className={styles.brandIn}>ME</p>
+                AtHomeCare<p className={styles.brandIn}></p>
               </span>
             </div>
           </Link>

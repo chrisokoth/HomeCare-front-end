@@ -6,9 +6,9 @@ const Footer = () => {
     <div className={styles.footer}>
       <div className={styles.footer_1}>
         <Link className={styles.text_1} to="/">
-          MEDIFY<span className={styles.text_2}>ME</span>
+          AtHomeCare<span className={styles.text_2}></span>
         </Link>
-        <p className={styles.text_3}>Paving the Way for Medical Excellence</p>
+        <p className={styles.text_3}>HealthCare Without Boundaries</p>
       </div>
       <div className={styles.footer_2}>
         <p className={styles.text_4}>Important Links</p>

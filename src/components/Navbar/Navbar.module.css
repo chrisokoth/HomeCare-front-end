@@ -11,7 +11,7 @@
 
 .navbar {
   height: 10vh;
-  background: linear-gradient(84.18deg, #2D495D 0.31%, #28333A 100%) fixed center center/cover;
+  background: linear-gradient(84.18deg, #43C6DB 0.31%, #43C6DB 100%) fixed center center/cover;
   /* position: relative; */
   width: 100%;
 }
@@ -51,7 +51,7 @@
   font-family: 'Work Sans';
   font-size: 1.1vw;
   font-weight: 400;
-  color: #FCFEFE;
+  color: black;
   ;
   text-decoration: none;
 }
@@ -91,7 +91,7 @@
 }
 
 .appointment {
-  background-color: #CDAA64;
+  background-color: #FFC8B2;
   color: #28333A !important;
   padding: 10px;
   padding-left: 20px;

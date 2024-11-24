@@ -52,7 +52,7 @@
   font-weight: 500;
   font-size: 3.5vw;
 
-  color: #2b3f4e;
+  color: black;
   opacity: 0;
   transform: translateX(50px);
   animation: fadeInRight 0.75s ease-in forwards;
@@ -71,7 +71,7 @@
   gap: 10px;
   margin-top: 20px;
 
-  background: #cdaa64;
+  background: #FFC8B2;
   border-radius: 50px;
   font-family: "Comfortaa";
   font-style: normal;
@@ -106,7 +106,7 @@
 .b2 {
   width: 25vw;
   height: 12vh;
-  background: #2b3e4c;
+  background: #43C6DB;
   border-radius: 6.85px;
   display: flex;
   align-items: center;
@@ -116,20 +116,20 @@
   font-weight: normal;
   font-size: 100%;
   padding-left: 3px;
-  color: #fcfefe;
+  color: black;
 }
 
 .b1 {
   width: 25vw;
   height: 12vh;
-  background: #2d485c;
+  background: #43C6DB;
   border-radius: 6.85px;
   font-family: "Work Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 100%;
   padding-left: 3px;
-  color: #fcfefe;
+  color: black;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -138,7 +138,7 @@
 .b3 {
   width: 25vw;
   height: 12vh;
-  background: #29343c;
+  background:#43C6DB;
   border-radius: 6.85px;
   display: flex;
   align-items: center;
@@ -148,7 +148,7 @@
   font-weight: normal;
   font-size: 100%;
   padding-left: 3px;
-  color: #fcfefe;
+  color:black;
 }
 
 .button img {
@@ -169,7 +169,7 @@
 
   text-align: center;
   letter-spacing: 0.13em;
-  text-transform: uppercase;
+  text-transform: capitalize;
 
   color: #6b889d;
 }
@@ -183,7 +183,7 @@
   line-height: 90px;
   text-align: center;
 
-  color: #2b3f4e;
+  color: black;
 }
 
 .lp3 {
@@ -221,7 +221,7 @@
   text-align: center;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #6b889d;
+  color: black;
   margin-top: 50px;
 }
 
